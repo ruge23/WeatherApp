@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather App</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="bsasweather">
+        <% if(weather_date !== null){ %>        
+            <h4><%= weather_date %></h4>
+            <h5><%= humidity %></h5>
+            <h5><%= condition %></h5> 
+            <a href="http://localhost:3000/minandmax">Ver mas...</a>
+        <% } %>
+        <% if(minAndMaxTemp !== null){ %>        
+            <h4><%= minAndMaxTemp %></h4>
+        <% } %>  
+    </div>
+    <div class="container">    
+        <fieldset>
+            <form action="/" method="post">
+            <input type="text" name="city" class="city-input" placeholder="Ingresa una Ciudad" required>
+            <input type="submit" class="city-button" value="Get weather">
+            </form>
+            <% if(weather !== null){ %>
+                <p><%= weather %></p>
+              <% } %>
+      
+              <% if(error !== null){ %>
+                <p><%= error %></p>
+              <% } %>
+        </fieldset>
+    </div>
+</body>
+</html>
